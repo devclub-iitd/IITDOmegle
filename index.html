@@ -84,11 +84,13 @@
         });
         socket.on('partner', function (partnerid) {
             console.log("receive partner "+partnerid);
+            $('#messages').append($('<li>').text('Now connected to partner. Start Chatting'));
             partner = partnerid;
             socket.emit('partner2',partnerid)
         });
         socket.on('partner2', function (partnerid) {
             console.log("receive partner "+partnerid);
+            $('#messages').append($('<li>').text('Now connected to partner. Start Chatting'));
             partner = partnerid;
         });
     });
