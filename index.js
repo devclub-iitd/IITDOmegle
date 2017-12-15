@@ -1,9 +1,12 @@
-var app = require('express')(),
+var express = require("express")
+var app = express(),
     http = require('http').Server(app),
     io = require('socket.io')(http),
     port = process.env.PORT || 3000,
     waiting_list=[],
     temp_partner;
+
+app.use(express.static(__dirname+"/public"));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
