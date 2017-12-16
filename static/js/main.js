@@ -1,7 +1,31 @@
   $(function () {
-        var socket = io();
-        var partner_id,partner_username,partner_avatar;
-        var msg2;
+
+      var timeout;
+      var socket = io();
+      var partner_id,partner_username,partner_avatar;
+      var msg2;
+      var audio = new Audio('/sounds/notif.mp3');
+
+
+      function timeoutFunction() {
+          socket.emit('typing', false);
+      }
+
+      $(//write name of message box here
+          ).keyup(function() {
+          socket.emit('typing',true);
+          clearTimeout(timeout);
+          timeout = setTimeout(timeoutFunction, 2000);
+      });
+
+      socket.on('typing', function(data) {
+          if (data) {
+              // call function to show typing
+          } else {
+              // call function to stop typing
+          }
+      });
+
         $('form').submit(function () {
             msg2 = $('#m').val();
             $('#messages').append('<li id="me">'+msg2+'</li>');
@@ -17,6 +41,7 @@
         $('#myimg').attr("src",socket.avatar);
         });
         socket.on('chat message', function (msg) {
+            audio.play();
             $('#messages').append('<li id="partner">'+msg+"</li>");
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
