@@ -11,13 +11,28 @@
 <h3 class="heading">chat with someone random</h3>
 <h2 class="heading">powered by DevClub</h2>
 <div id = "outerdiv">
-    <ul id = "messages"></ul>
+	<span id="partnerinfo">
+		<h3>You're talking to:</h3>
+		<br>
+		<h3 id="partnername"></h3>
+		<br>
+		<img id = "partnerimg" src="">
+	</span>
+	<span id="myinfo">
+		<h3>You are:</h3>
+		<br>
+		<h3 id="myname"></h3>
+		<br>
+		<img id = "myimg" src="">
+	</span>
+   		<ul id = "messages"></ul>
+   	
+</div>
+
     <form action="">
         <input id="m" autocomplete="off"/>
-
         <button> <i class="fa fa-send-o"></i></button>
     </form>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="js/main.js"></script>

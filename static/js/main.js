@@ -13,6 +13,8 @@
         socket.on('init',function (data) {
             socket.username=data.username;
             socket.avatar=data.avatar;
+        $('#myname').html(socket.username);
+        $('#myimg').attr("src",socket.avatar);
         });
         socket.on('chat message', function (msg) {
             $('#messages').append('<li id="partner">'+msg+"</li>");
@@ -20,7 +22,9 @@
         });
         socket.on('partner', function (partner_data) {
             if(partner_id==null){
-            $('#messages').append("<li>"+'Now connected to partner. Start Chatting'+"</li>");
+            $('#messages').append("<li>"+'Connected to '+partner_data.username+"</li>");
+            $('#partnername').html(partner_data.username);
+            $('#partnerimg').attr("src",partner_data.avatar);
             partner_id = partner_data.id;
             partner_username=partner_data.username;
             partner_avatar=partner_data.avatar;
