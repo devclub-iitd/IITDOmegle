@@ -24,3 +24,4 @@ To signal messages and metadata between browsers, socket.io is used.
 2. Force Close Chat on partner disconnection.
 3. Add option to take gender of user.
 4. Add option to select preferred gender.
+5. Partner is typing functionality to be added.
