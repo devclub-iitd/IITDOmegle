@@ -54,6 +54,10 @@ io.on('connection', function(socket){
         console.log("Active Users = "+num_users);
     });
 
+    socket.on('typing',function (data) {
+        socket.broadcast.to(socket.partner).emit("typing", data);
+    })
+
 });
 
 http.listen(port, function(){
