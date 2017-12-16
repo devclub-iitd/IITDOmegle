@@ -2,6 +2,7 @@
         var socket = io();
         var partner_id,partner_username,partner_avatar;
         var msg2;
+      var audio = new Audio('/sounds/notif.mp3');
         $('form').submit(function () {
             msg2 = $('#m').val();
             $('#messages').append('<li id="me">'+msg2+'</li>');
@@ -17,6 +18,7 @@
         $('#myimg').attr("src",socket.avatar);
         });
         socket.on('chat message', function (msg) {
+            audio.play();
             $('#messages').append('<li id="partner">'+msg+"</li>");
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
