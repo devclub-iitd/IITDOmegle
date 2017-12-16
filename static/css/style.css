@@ -6,7 +6,7 @@
         }
         body {
             font: 13px Helvetica, Arial;
-            background-image:url("/background-tree.png");
+            background-image:url("/images/background-tree.png");
         }
         .heading{
             text-align: center;
