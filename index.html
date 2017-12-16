@@ -1,154 +1,25 @@
 <!doctype html>
 <html>
 <head>
-    <title>Socket.IO chat</title>
+    <title>IITD Omegle Chat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-        body {
-            font: 13px Helvetica, Arial;
-            background-image:url("/tree-minimalist-wallpapaer-dark.png");
-        }
-        .heading{
-            text-align: center;
-        }
-        form {
-            margin-left: auto;
-            margin-right: auto;
-            position: fixed;
-            bottom: 0;
-            width: 50%;
-            left:25%;
-            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-            border-radius: 5px;
-
-        }
-
-        form input {
-            border: 0;
-            border-radius: 5px;
-            padding: 10px;
-            width: 93%;
-            margin: 0;
-            float:left;
-        }
-        form button {
-            width: 7%;
-            background: #ededed;
-            border: 0;
-            padding: 10px;
-            margin:0;
-            border-radius: 5px;
-
-        }
-        #outerdiv{
-            overflow: hidden;
-            width:40%;
-            margin-top : 2%;
-            margin-left: auto;
-            margin-right: auto;
-             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        }
-        #outerdiv:hover {
-
-          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        }
-        #messages{
-            overflow-y: scroll;
-            position: relative;  
-            list-style-type: none;
-            width:100%;
-            height:400px;
-            margin-top : 0%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 40px
-            padding: 0;
-            background-color: white;
-        }
-        #messages #me {
-            /*float : right;*/
-            /*display: box;*/
-            padding: 5px 10px;
-            width : max-content;
-            margin-left: auto;            
-            margin-right: 0;
-            background: #99db9a;
-            border-radius: 3px;
-            /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-
-
-        }
-        #messages #partner {
-            padding: 5px 10px;
-            background: #eee;
-            width : max-content;
-            margin-left: 0;            
-            margin-right: auto;
-            /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-            border-radius: 3px;
-            background: #e0e0e0;
-
-
-        }
-    </style>
+    <link rel="stylesheet" media="screen" href="css/style.css" />
 </head>
 <body>
-    <h1 class="heading">IITD Omegle</h1>
-    <h3 class="heading">chat with someone random</h3>
-    <h2 class="heading">powered by DevClub</h2>
-    <div id = "outerdiv">
-        <ul id = "messages"></ul>
-        <form action="">
-            <input id="m" autocomplete="off"/>
-       
-            <button> <i class="fa fa-send-o"></i></button>
-        </form>
-    </div>
+<h1 class="heading">IITD Omegle</h1>
+<h3 class="heading">chat with someone random</h3>
+<h2 class="heading">powered by DevClub</h2>
+<div id = "outerdiv">
+    <ul id = "messages"></ul>
+    <form action="">
+        <input id="m" autocomplete="off"/>
+
+        <button> <i class="fa fa-send-o"></i></button>
+    </form>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-    $(function () {
-        var socket = io();
-        var partner;
-        var msg2;
-        $('form').submit(function () {
-            console.log('emitting');
-            msg2 = $('#m').val();
-            // $('#messages').append($('<li>').text('You   :  '+msg2));
-            $('#messages').append('<li id="me">'+msg2+'</li>');
-            $("#messages").scrollTop($("#messages")[0].scrollHeight);
-            // window.scrollTo(0, document.body.scrollHeight);
-            socket.emit('chat message', {msg: msg2, target: partner});
-            console.log('emitted');
-            $('#m').val('');
-            return false;
-        });
-        socket.on('chat message', function (msg) {
-            console.log('received');
-            $('#messages').append('<li id="partner">'+msg+"</li>");
-            $("#messages").scrollTop($("#messages")[0].scrollHeight);
-            // window.scrollTo(0, document.body.scrollHeight);
-        });
-        socket.on('partner', function (partnerid) {
-            console.log("receive partner "+partnerid);
-            $('#messages').append("<li>"+'Now connected to partner. Start Chatting'+"</li>");
-            partner = partnerid;
-            socket.emit('partner2',partnerid)
-        });
-        socket.on('partner2', function (partnerid) {
-            console.log("receive partner "+partnerid);
-            $('#messages').append("</li>"+'Now connected to partner. Start Chatting'+"</li>");
-            partner = partnerid;
-        });
-    });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
