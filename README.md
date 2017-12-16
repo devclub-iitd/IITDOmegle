@@ -20,5 +20,7 @@ To signal messages and metadata between browsers, socket.io is used.
 -----------------------------------------------------------------------------------------
 
 # TODO List
-1. Add option to take gender of user.
-2. Add option to select preferred gender.
+1. Spinner indicating waiting for partner.
+2. Force Close Chat on partner disconnection.
+3. Add option to take gender of user.
+4. Add option to select preferred gender.
