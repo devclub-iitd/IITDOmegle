@@ -20,11 +20,21 @@
             $('#messages').append('<li id="partner">'+msg+"</li>");
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
+        socket.on('disconnecting now', function (msg) {
+            $('#messages').append('<li id="partner">'+msg+"</li>");
+            $("#messages").scrollTop($("#messages")[0].scrollHeight);
+            $('#partnername').html(" ");
+            $('#partnerimg').attr("src"," ");
+            $('#m').css("pointer-events","none");
+            $('form button').css("pointer-events","none");
+        });
         socket.on('partner', function (partner_data) {
             if(partner_id==null){
             $('#messages').append("<li>"+'Connected to '+partner_data.username+"</li>");
             $('#partnername').html(partner_data.username);
             $('#partnerimg').attr("src",partner_data.avatar);
+            $('#m').css("pointer-events","auto");
+            $('form button').css("pointer-events","auto");
             partner_id = partner_data.id;
             partner_username=partner_data.username;
             partner_avatar=partner_data.avatar;

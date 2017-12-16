@@ -45,7 +45,7 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function () {
         if(socket.partner!=null){
-            socket.broadcast.to(socket.partner).emit("chat message", 'Your Partner has disconnected . Refresh page to chat again');
+            socket.broadcast.to(socket.partner).emit("disconnecting now", 'Your Partner has disconnected . Refresh page to chat again');
         }
         else{
             waiting_list.splice(0,1);

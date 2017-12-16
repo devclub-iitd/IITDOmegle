@@ -117,3 +117,9 @@ form button {
     position: absolute;
     right:5%;
 }
+#m{
+    pointer-events: none;
+}
+form button{
+    pointer-events: none;
+}
