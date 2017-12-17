@@ -21,7 +21,7 @@ To signal messages and metadata between browsers, socket.io is used.
 
 # TODO List
 1. Spinner indicating waiting for partner.
-~~2. Force Close Chat on partner disconnection.~~
+2. ~~Force Close Chat on partner disconnection.~~
 3. Partner is typing functionality to be added. (In Progress)
 4. Chat box ka size thoda bada kar sakte ho, abhi beech main kahin dikh raha hai
 5. Neeche ka type wala message box ko chat box ke saath club karke pura div ko bada kar sakte ho
