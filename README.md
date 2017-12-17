@@ -22,6 +22,8 @@ To signal messages and metadata between browsers, socket.io is used.
 # TODO List
 1. Spinner indicating waiting for partner.
 2. Force Close Chat on partner disconnection.
-3. Add option to take gender of user.
-4. Add option to select preferred gender.
-5. Partner is typing functionality to be added.
+3. Partner is typing functionality to be added.
+4. Chat box ka size thoda bada kar sakte ho, abhi beech main kahin dikh raha hai
+5. Neeche ka type wala message box ko chat box ke saath club karke pura div ko bada kar sakte ho
+6. Emoji render ka daal sakte ho like :stuck_out_tongue: renders to :stuck_out_tongue:
+7. Thoda text formatting karke, message ke neeche footnote main time daal sakte ho jaise whatsapp main hota hai.
