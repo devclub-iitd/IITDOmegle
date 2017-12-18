@@ -141,7 +141,9 @@ form button:hover{
 #m{
     pointer-events: none;
     font-size: 1.5em;
+    background:#e0e2e5;
 }
 form button{
     pointer-events: none;
+    background:#e0e2e5;
 }

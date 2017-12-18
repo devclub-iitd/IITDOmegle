@@ -64,7 +64,9 @@ $(function () {
             $('#partnername').html(" ");
             $('#partnerimg').attr("src"," ");
             $('#m').css("pointer-events","none");
+            $('#m').css("background","#e0e2e5");
             $('form button').css("pointer-events","none");
+            $('form button').css("background","#e0e2e5");
         });
 
 
@@ -74,6 +76,7 @@ $(function () {
                 $('#partnername').html(partner_data.username);
                 $('#partnerimg').attr("src",partner_data.avatar);
                 $('#m').css("pointer-events","auto");
+                $('#m').css("background","white");
                 $('form button').css("pointer-events","auto");
                 $('form button').css("background","#06baf1");
                 partner_id = partner_data.id;
