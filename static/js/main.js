@@ -1,8 +1,8 @@
 $(function () {
 
-    const FORM_INPUT_DISABLED_COLOR='#e0e2e5';
-    const FORM_INPUT_MSG_COLOR='#00ff00';
-    const FORM_INPUT_SEND_COLOR='#0000ff';
+    const FORM_INPUT_DISABLED_COLOR='#000000';//'#e0e2e5';
+    const FORM_INPUT_MSG_COLOR='#ffffff';//'#00ff00';
+    const FORM_INPUT_SEND_COLOR='#ffffff';//'#0000ff';
     const MSG_MINE_COLOR='#f72702';
     const MSG_PARTNER_COLOR='#0763db';
 
@@ -11,7 +11,13 @@ $(function () {
     var partner_id,partner_username,partner_avatar,my_id;
     var audio = new Audio('/static/sounds/notif.mp3');
 
-    
+    $("#messages").scrollTop($("#messages")[0].scrollHeight);
+    $('#partnername').html(" ");
+    $('#partnerimg').attr("src"," ");
+    $('#m').css("pointer-events","none");
+    $('#m').css("background",FORM_INPUT_DISABLED_COLOR);
+    $('form button').css("pointer-events","none");
+    $('form button').css("background",FORM_INPUT_DISABLED_COLOR);
     
     function timeoutFunction() {
             socket.emit('typing', false);
@@ -44,7 +50,6 @@ $(function () {
         my_id = data.my_id;
         $('#myname').html(socket.username);
         $('#myimg').attr("src",socket.avatar);
-        $('#m').attr("placeholder","Type to send a message");
     });
 
     socket.on('chat message mine',function(msg){
@@ -71,6 +76,7 @@ $(function () {
         $('#m').css("background",FORM_INPUT_DISABLED_COLOR);
         $('form button').css("pointer-events","none");
         $('form button').css("background",FORM_INPUT_DISABLED_COLOR);
+        $('#m').attr("placeholder","");
     });
 
     socket.on('partner', function (partner_data) {
@@ -85,6 +91,7 @@ $(function () {
             partner_id = partner_data.id;
             partner_username=partner_data.username;
             partner_avatar=partner_data.avatar;
+            $('#m').attr("placeholder","Type to send a message");
             socket.emit('partner',{target:partner_id,
                 data:{id:socket.id,
                     username:socket.username,
