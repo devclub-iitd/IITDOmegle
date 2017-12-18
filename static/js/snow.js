@@ -16,7 +16,7 @@ var flakes = [],
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
+    
 function snow() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -111,6 +111,5 @@ canvas.addEventListener("mousemove", function(e) {
 window.addEventListener("resize",function(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-})
-
+});
 init();
