@@ -50,14 +50,20 @@ $(function () {
 
         socket.on('chat message mine',function(msg){
             console.log("Got back my own msg");
-            $('#messages').append('<div id="me">'+msg+'</div>');
-            $("#messages").scrollTop($("#messages")[0].scrollHeight);
+            // $('#messages').append('<div id="me" style="display:none">'+msg+'</div>').slideDown();
+            var newdata = '<div id="me" style="display:none">'+msg+'</div>';
+            $(newdata).appendTo('#messages').slideDown(speed="fast",callback=function(){
+               $("#messages").scrollTop($("#messages")[0].scrollHeight);
+            });
         });
 
         socket.on('chat message partner', function (msg) {
             audio.play();
-            $('#messages').append('<div id="partner">'+msg+"</div>");
-            $("#messages").scrollTop($("#messages")[0].scrollHeight);
+            var newdata = '<div id="partner" style="display:none">'+msg+'</div>';
+            $(newdata).appendTo('#messages').slideDown(speed="fast",callback=function(){
+               $("#messages").scrollTop($("#messages")[0].scrollHeight);
+            });
+
         });
 
 
