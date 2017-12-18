@@ -17,10 +17,8 @@ body {
 form {
     margin-left: auto;
     margin-right: auto;
-    position: fixed;
-    bottom: 0;
-    width: 50%;
-    left: 25%;
+    position: relative;
+    width: 100%;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
 
@@ -44,6 +42,9 @@ form button {
     border-radius: 5px;
 
 }
+form button:hover{
+    cursor: pointer;
+}
 
 #outerdiv {
     overflow: hidden;
@@ -53,32 +54,51 @@ form button {
     margin-right: auto;
 }
 
+
+#messagediv {
+    overflow: hidden;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#partnerdiv {
+    width: 12%;
+    float: left;
+    margin-left: 2%;
+    margin-right: auto;
+}
+
+#mydiv {
+    width: 12%;
+    float: right;
+    margin-right: 0%;
+    margin-left: auto;
+}
+
 #outerdiv img{
     border-radius:65px;
 }
 
 
 #messages {
-    overflow-y: scroll;
+    overflow-y: hidden;
     position: relative;
     list-style-type: none;
-    width: 40%;
-    height: 400px;
+    width: 100%;
+    height: 800px;
     margin-top: 0%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0px;
     padding: 0;
-    background-color: #f2eade;
-    /*background-image: url("/images/backrand.jpg");*/
-    /*background-position: center;*/
+    background-color:rgba(242,234,222,0.5) ;/*#f2eade;*/
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 
 }
 
 #messages:hover {
-
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -88,37 +108,39 @@ form button {
     padding: 5px 10px;
     width: max-content;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 2%;
     background: #99db9a;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-
+    font-size: 1.5em;
 }
 
 #messages #partner {
     padding: 5px 10px;
     background: #eee;
     width: max-content;
-    margin-left: 0;
+    margin-left: 2%;
     margin-right: auto;
     /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background: #e0e0e0;
+    font-size: 1.5em;
 
 }
 
-#partnerinfo{
-    position: absolute;
-    left:5%;
+.emoji{
+    height:18px;
 }
-#myinfo{
-    position: absolute;
-    right:5%;
-}
+
 #m{
     pointer-events: none;
+    font-size: 1.5em;
 }
 form button{
     pointer-events: none;

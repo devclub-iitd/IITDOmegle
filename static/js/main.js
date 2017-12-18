@@ -1,13 +1,14 @@
-  $(function () {
+$(function () {
 
       var timeout;
       var socket = io();
       var partner_id,partner_username,partner_avatar;
+      var my_id;
       var msg2;
       var audio = new Audio('/sounds/notif.mp3');
 
-
-      function timeoutFunction() {
+    
+    function timeoutFunction() {
           socket.emit('typing', false);
       }
 
@@ -27,46 +28,61 @@
       });
 
         $('form').submit(function () {
-            msg2 = $('#m').val();
-            $('#messages').append('<li id="me">'+msg2+'</li>');
-            $("#messages").scrollTop($("#messages")[0].scrollHeight);
-            socket.emit('chat message', {msg: msg2, target: partner_id});
+            var msg = $('#m').val();
+            socket.emit('chat message', {msg: msg, target: partner_id, source: my_id});
             $('#m').val('');
             return false;
         });
+
+
         socket.on('init',function (data) {
             socket.username=data.username;
             socket.avatar=data.avatar;
+            my_id = data.my_id;
+            console.log(my_id);
         $('#myname').html(socket.username);
         $('#myimg').attr("src",socket.avatar);
         });
-        socket.on('chat message', function (msg) {
-            audio.play();
-            $('#messages').append('<li id="partner">'+msg+"</li>");
+
+
+        socket.on('chat message mine',function(msg){
+            console.log("Got back my own msg");
+            $('#messages').append('<div id="me">'+msg+'</div>');
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
+
+        socket.on('chat message partner', function (msg) {
+            audio.play();
+            $('#messages').append('<div id="partner">'+msg+"</div>");
+            $("#messages").scrollTop($("#messages")[0].scrollHeight);
+        });
+
+
         socket.on('disconnecting now', function (msg) {
-            $('#messages').append('<li id="partner">'+msg+"</li>");
+            $('#messages').append('<div id="partner">'+msg+"</div>");
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
             $('#partnername').html(" ");
             $('#partnerimg').attr("src"," ");
             $('#m').css("pointer-events","none");
             $('form button').css("pointer-events","none");
         });
+
+
         socket.on('partner', function (partner_data) {
             if(partner_id==null){
-            $('#messages').append("<li>"+'Connected to '+partner_data.username+"</li>");
-            $('#partnername').html(partner_data.username);
-            $('#partnerimg').attr("src",partner_data.avatar);
-            $('#m').css("pointer-events","auto");
-            $('form button').css("pointer-events","auto");
-            partner_id = partner_data.id;
-            partner_username=partner_data.username;
-            partner_avatar=partner_data.avatar;
-            socket.emit('partner',{target:partner_id,
-                data:{id:socket.id,
-                    username:socket.username,
-                    avatar:socket.avatar}});
+                $('#messages').append("<div>"+'Connected to '+partner_data.username+"</div>");
+                $('#partnername').html(partner_data.username);
+                $('#partnerimg').attr("src",partner_data.avatar);
+                $('#m').css("pointer-events","auto");
+                $('form button').css("pointer-events","auto");
+                $('form button').css("background","#06baf1");
+                partner_id = partner_data.id;
+                partner_username=partner_data.username;
+                partner_avatar=partner_data.avatar;
+                socket.emit('partner',{target:partner_id,
+                    data:{id:socket.id,
+                        username:socket.username,
+                        avatar:socket.avatar}});
             }
         });
     });

@@ -1,3 +1,5 @@
+var emoji = require('emoji-parser');
+
 var express = require("express"),
     faker = require("faker"),
     app = express(),
@@ -9,10 +11,14 @@ var express = require("express"),
     num_users=0;
 
 app.use(express.static(__dirname+"/static"));
+app.use('/emoji/images',express.static(__dirname+"/node_modules/emoji-parser/emoji/"));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
+
+emoji.init().update();
+
 
 io.on('connection', function(socket){
 
@@ -21,7 +27,7 @@ io.on('connection', function(socket){
     socket.partner=null;
     socket.username='anonymous-'+faker.name.firstName();
     socket.avatar=faker.internet.avatar();
-    socket.emit("init",{username:socket.username,avatar:socket.avatar});
+    socket.emit("init",{username:socket.username,avatar:socket.avatar,my_id:socket.id});
 
     if(waiting_list.length>0){
         temp_partner=waiting_list[0];
@@ -33,9 +39,11 @@ io.on('connection', function(socket){
     }
 
     socket.on('chat message', function(data){
-        var msg=data.msg,
-            target=data.target;
-        socket.broadcast.to(target).emit("chat message", msg);
+        var msg = emoji.parse(data.msg, '/emoji/images');
+        var target=data.target;
+        var source=data.source;
+        socket.broadcast.to(target).emit("chat message partner", msg);
+        io.to(source).emit("chat message mine", msg);
     });
 
     socket.on('partner', function(packet){
