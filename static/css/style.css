@@ -73,7 +73,7 @@ form button:hover{
     /*overflow: hidden;*/
     width: 100%;
     height: 100%;
-    margin-top: 2%;
+    margin-top: 1.3%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -192,4 +192,8 @@ form button{
 #canvas{
     position: absolute;
     z-index: 1;
+}
+#istyping{
+    color: white;
+    visibility:hidden;
 }

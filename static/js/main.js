@@ -12,8 +12,7 @@ $(function () {
           socket.emit('typing', false);
       }
 
-      $(//write name of message box here
-          ).keyup(function() {
+      $("#m").keyup(function() {
           socket.emit('typing',true);
           clearTimeout(timeout);
           timeout = setTimeout(timeoutFunction, 2000);
@@ -21,8 +20,10 @@ $(function () {
 
       socket.on('typing', function(data) {
           if (data) {
+            $("#istyping").css("visibility","visible")
               // call function to show typing
           } else {
+            $("#istyping").css("visibility","hidden")
               // call function to stop typing
           }
       });
