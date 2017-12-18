@@ -76,9 +76,9 @@ $(function () {
                 $('#partnername').html(partner_data.username);
                 $('#partnerimg').attr("src",partner_data.avatar);
                 $('#m').css("pointer-events","auto");
-                $('#m').css("background","white");
+                $('#m').css("background","#e3fce0");
                 $('form button').css("pointer-events","auto");
-                $('form button').css("background","#06baf1");
+                $('form button').css("background","#bffcb8");
                 partner_id = partner_data.id;
                 partner_username=partner_data.username;
                 partner_avatar=partner_data.avatar;
