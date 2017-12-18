@@ -63,7 +63,7 @@ function snow() {
         }
 
 	//imgDrops = new Image();   //For valentines dat
-        //imgDrops.src = "/images/heart.png";   //For valentines Day
+        //imgDrops.src = "/static/images/heart.png";   //For valentines Day
         ctx.beginPath();
         //ctx.drawImage(imgDrops,flake.x,flake.y,flake.size+10,flake.size+10);  //For valentines Day
         ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
