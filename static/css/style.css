@@ -29,8 +29,7 @@ form {
     width: 100%;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
-    height: 5.7%
-
+    height: 5%
 }
 
 form input {
@@ -40,7 +39,7 @@ form input {
     width: 93%;
     margin: 0;
     float: left;
-    height:50px;
+    height:100%;
 
 }
 form input:focus{
@@ -48,7 +47,7 @@ form input:focus{
 }
 
 form button {
-    height:50px;
+    height:100%;
     width: 7%;
     height: 100%;
     background: #ededed;

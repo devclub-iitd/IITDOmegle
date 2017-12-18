@@ -42,6 +42,8 @@ $(function () {
             console.log(my_id);
         $('#myname').html(socket.username);
         $('#myimg').attr("src",socket.avatar);
+        $('#m').attr("placeholder","Type to send a message");
+        
         });
 
 
