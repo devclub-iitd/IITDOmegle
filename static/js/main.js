@@ -31,6 +31,7 @@ $(function () {
         $('form').submit(function () {
             var msg = $('#m').val();
             socket.emit('chat message', {msg: msg, target: partner_id, source: my_id});
+            timeoutFunction();
             $('#m').val('');
             return false;
         });
