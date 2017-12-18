@@ -12,5 +12,6 @@
     <orderEntry type="library" name="@types/express" level="application" />
     <orderEntry type="library" name="socket.io-1.2.0" level="application" />
     <orderEntry type="library" name="socket.io" level="application" />
+    <orderEntry type="library" name="@types/faker" level="application" />
   </component>
 </module>
