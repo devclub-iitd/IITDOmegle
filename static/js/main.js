@@ -9,7 +9,7 @@ $(function () {
     var timeout;
     var socket = io();
     var partner_id,partner_username,partner_avatar,my_id;
-    var audio = new Audio('/static/sounds/notif.mp3');
+    var audio = new Audio('static/sounds/notif.mp3');
 
     $("#messages").scrollTop($("#messages")[0].scrollHeight);
     $('#partnername').html(" ");
