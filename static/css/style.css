@@ -17,6 +17,14 @@ body {
     margin: 0;
 }
 
+#bodyDiv{
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    margin: 0;
+    font: 13px Helvetica, Arial;    
+}
+
 
 .heading {
     text-align: center;
@@ -179,4 +187,9 @@ form button{
 #messages::-webkit-scrollbar-thumb {
   background-color: #94bf91;
   outline: 1px solid #94bf91;
+}
+
+#canvas{
+    position: absolute;
+    z-index: 1;
 }
