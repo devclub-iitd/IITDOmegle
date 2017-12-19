@@ -28,3 +28,5 @@ To signal messages and metadata between browsers, socket.io is used.
 6. Render text as emoji icons.
 7. Add time of sent message.
 8. Create Button to reconnect to new partner.
+9. Advertise other webapps created by DevClub as the first message encountered by User.
+10. Wish the event of the day/month (Eg:- merry christmas, new year, valentine day) as the first message to user.
