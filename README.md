@@ -22,9 +22,9 @@ To signal messages and metadata between browsers, socket.io is used.
 # TODO List
 1. Spinner indicating waiting for partner.
 2. ~~Force Close Chat on partner disconnection.~~
-3. Partner is typing functionality to be added. (In Progress)
-4. Increase size of chat box.
-5. Club chat box with message box and increase size.
+3. ~~Partner is typing functionality to be added. (In Progress)~~
+4. ~~Increase size of chat box.~~
+5. ~~Club chat box with message box and increase size.~~
 6. Render text as emoji icons.
 7. Add time of sent message.
 8. Create Button to reconnect to new partner.
