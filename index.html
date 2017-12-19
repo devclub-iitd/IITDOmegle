@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
+	<link rel="stylesheet" href="static/css/emojionearea.min.css">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
 				</div>
 				<form action="">
 					<input id="m" autocomplete="off" placeholder="Wait for partner to join"/>
-					<button> <i class="fa fa-send-o"></i></button>
+                    <button> <i class="fa fa-send-o"></i></button>
 					<label id="istyping">Partner is typing...</label>
 				</form>
 			</div>
@@ -52,6 +53,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="static/js/main.js"></script>
 	<script type="text/javascript" src="static/js/snow.js"></script>
+    <script type="text/javascript" src="static/js/emojionearea.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#m").emojioneArea({
+                inline: true
+            });
+        });
+    </script>
 </body>
 
 </html>

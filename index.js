@@ -40,6 +40,7 @@ io.on('connection', function(socket){
 
     socket.on('chat message', function(data){
         var msg = emoji.parse(data.msg, '/emoji/images');
+        // var msg=data.msg;
         var target=data.target;
         var source=socket.id;
         socket.broadcast.to(target).emit("chat message partner", msg);

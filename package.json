@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Random Chat App",
   "dependencies": {
+    "embed-js": "^5.0.3",
     "emoji-parser": "^0.1.2",
     "express": "^4.16.2",
     "faker": "^4.1.0",

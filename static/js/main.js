@@ -57,7 +57,7 @@ $(function () {
         var newData = '<div class="me" style="display:none">'+msg+'</div>';
         $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
           $("#messages").scrollTop($("#messages")[0].scrollHeight);
-        })
+        });
         $('#messages .me').css('background',MSG_MINE_COLOR);
 
     
@@ -69,7 +69,7 @@ $(function () {
         var newData = '<div class="partner" style="display:none">'+msg+'</div>';
         $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
           $("#messages").scrollTop($("#messages")[0].scrollHeight);
-        })
+        });
         $('#messages .partner').css('background',MSG_PARTNER_COLOR);
     
     });
