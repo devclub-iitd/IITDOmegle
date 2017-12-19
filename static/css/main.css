@@ -215,3 +215,28 @@ h2,h3 {
     height: 100vh;
     width: 100vw;
 }
+
+@media screen and (max-width: 500px) {
+    .align-left {
+        width: 50%;
+        display: inline-block;
+    }
+    #partnerdiv #partnerimg, #mydiv #myimg {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top !important;
+        height: 50px !important;
+        border-radius: 25px;
+        max-width: 50px !important;
+        float: right;
+    }
+    #partnerdiv h3, #mydiv h3 {
+        margin: 0px;
+    }
+    #messagediv {
+        height: 60%;
+    }
+    #mydiv {
+        float: left;
+    }
+}
