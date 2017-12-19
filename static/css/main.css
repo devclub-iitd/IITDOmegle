@@ -6,7 +6,7 @@
 }
 
 html {
-    width: auto;
+    width: 100%;
     height:100%; 
 }
 
@@ -89,10 +89,10 @@ form button:hover{
 
 #messagediv {
     /*overflow: hidden;*/
-    /*width: 70%;*/
+    width: 65%;
     height: 70%;
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #partnerdiv {
