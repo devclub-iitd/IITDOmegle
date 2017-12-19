@@ -1,4 +1,4 @@
-var emoji = require('emoji-parser');
+// var emoji = require('emoji-parser');
 
 var express = require("express"),
     faker = require("faker"),
@@ -11,13 +11,13 @@ var express = require("express"),
     num_users=0;
 
 app.use('/static',express.static(__dirname+"/static"));
-app.use('/emoji/images',express.static(__dirname+"/node_modules/emoji-parser/emoji/"));
+// app.use('/emoji/images',express.static(__dirname+"/node_modules/emoji-parser/emoji/"));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-emoji.init().update();
+// emoji.init().update();
 
 
 io.on('connection', function(socket){
@@ -39,8 +39,8 @@ io.on('connection', function(socket){
     }
 
     socket.on('chat message', function(data){
-        var msg = emoji.parse(data.msg, '/emoji/images');
-        // var msg=data.msg;
+        // var msg = emoji.parse(data.msg, '/emoji/images');
+        var msg=data.msg;
         var target=data.target;
         var source=socket.id;
         socket.broadcast.to(target).emit("chat message partner", msg);

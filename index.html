@@ -6,6 +6,9 @@
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
 	<link rel="stylesheet" href="static/css/emojionearea.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@3.1.2/extras/css/emojione.min.css"/>
+	
 </head>
 
 <body>
@@ -39,14 +42,14 @@
 				</span>
 			</div>
 			<div id="messagediv">
-				<div id = "messages">
-					
+				<div id = "messages"></div>
+				<div id = "newMessage">
+					<form action="">
+						<input type="text" id="m" autocomplete="off" placeholder="Wait for partner to join"/>
+						<button> <i class="fa fa-send-o"></i></button>
+						<label id="istyping">Partner is typing...</label>
+					</form>
 				</div>
-				<form action="">
-					<input id="m" autocomplete="off" placeholder="Wait for partner to join"/>
-                    <button> <i class="fa fa-send-o"></i></button>
-					<label id="istyping">Partner is typing...</label>
-				</form>
 			</div>
 		</div>
 	</div>
@@ -58,6 +61,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#m").emojioneArea({
+				saveEmojisAs: 'shortname'
             });
         });
     </script>
