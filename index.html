@@ -6,6 +6,10 @@
 	<link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css" />
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
+	<link rel="stylesheet" href="static/css/emojionearea.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@3.1.2/extras/css/emojione.min.css"/>
+	
 </head>
 
 <body>
@@ -37,15 +41,24 @@
 					<img id = "partnerimg" src="">
 				</span>
 			</div>
-			<div id="messagediv" class="col-sm-8 rounded">
-				<div id = "messages">
-					
+			<div id="mydiv">
+				<span id="myinfo">
+					<h3>You are:</h3>
+					<br>
+					<h3 id="myname"></h3>
+					<br>
+					<img id = "myimg" src="">
+				</span>
+			</div>
+			<div id="messagediv">
+				<div id = "messages"></div>
+				<div id = "newMessage">
+					<form action="">
+						<input type="text" id="m" autocomplete="off" placeholder="Wait for partner to join"/>
+						<button> <i class="fa fa-send-o"></i></button>
+						<label id="istyping">Partner is typing...</label>
+					</form>
 				</div>
-				<form action="">
-					<input id="m" autocomplete="off" placeholder="Wait for partner to join"/>
-					<button> <i class="fa fa-send-o"></i></button>
-					<label id="istyping">Partner is typing...</label>
-				</form>
 			</div>
 			<div id="mydiv" class="col-sm-2">
 				<span id="myinfo">
@@ -64,6 +77,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="static/js/main.js"></script>
 	<script type="text/javascript" src="static/js/snow.js"></script>
+    <script type="text/javascript" src="static/js/emojionearea.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#m").emojioneArea({
+				saveEmojisAs: 'shortname'
+            });
+        });
+    </script>
 </body>
 
 </html>

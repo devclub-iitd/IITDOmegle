@@ -38,9 +38,11 @@ $(function () {
     });
 
     $('form').submit(function () {
-        var msg = $('#m').val();
-        socket.emit('chat message', {msg: msg, target: partner_id});
+        var msg = $('#m').val().trim();
+        if(msg!='')
+            socket.emit('chat message', {msg: msg, target: partner_id});
         $('#m').val('');
+        $('div.emojionearea-editor').text('');
         return false;
     });
 
@@ -53,20 +55,19 @@ $(function () {
     });
 
     socket.on('chat message mine',function(msg){
-
-        var newData = '<div class="me" style="display:none">'+msg+'</div>';
+        var output_msg = emojione.shortnameToImage(msg);
+        var newData = '<div class="me" style="display:none">'+output_msg+'</div>';
         $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
           $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
         $('#messages .me').css('background',MSG_MINE_COLOR);
-
-    
     });
 
 
     socket.on('chat message partner', function (msg) {
         audio.play();
-        var newData = '<div class="partner" style="display:none">'+msg+'</div>';
+        var output_msg = emojione.shortnameToImage(msg);        
+        var newData = '<div class="partner" style="display:none">'+output_msg+'</div>';
         $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
           $("#messages").scrollTop($("#messages")[0].scrollHeight);
         });
@@ -99,6 +100,7 @@ $(function () {
             partner_username=partner_data.username;
             partner_avatar=partner_data.avatar;
             $('#m').attr("placeholder","Type to send a message");
+            $('div.emojionearea-editor').attr("placeholder","Type to send a message");
             socket.emit('partner',{target:partner_id,
                 data:{id:socket.id,
                     username:socket.username,

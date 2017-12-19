@@ -36,13 +36,11 @@ body {
 }
 
 form {
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
-    width: 100%;
+    width: 144.4%;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
-    height: 5%
+    height: 100%;
 }
 
 form input {
@@ -69,6 +67,7 @@ form button {
     border-bottom-right-radius: 5px;
     background:#e0e2e5;
     pointer-events: none;
+    position: relative;
     
 }
 form button:hover{
@@ -174,6 +173,18 @@ form button:hover{
 
 }
 
+.emoji{
+    height:18px;
+}
+
+#newMessage {
+    width: 70%;
+    height: 5%;
+}
+
+
+
+
 #m{
     pointer-events: none;
     font-size: 1.5em;
@@ -200,6 +211,16 @@ form button:hover{
 #istyping{
     color: white;
     visibility:hidden;
+}
+
+
+div.emojionearea{
+    width: 92%; 
+    float: left;
+}
+
+div.emojionearea-inline{
+    width: 92%; 
 }
 
 .no-margin {
