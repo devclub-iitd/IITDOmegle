@@ -7,7 +7,7 @@
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
 	<link rel="stylesheet" href="static/css/emojionearea.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@3.1.2/extras/css/emojione.min.css"/>
 	
 </head>
@@ -55,9 +55,9 @@
 			<div id="messagediv">
 				<div id = "messages"></div>
 				<div id = "newMessage">
-					<form action="">
+					<form id='msgform' action="">
 						<input type="text" id="m" autocomplete="off" placeholder="Wait for partner to join"/>
-						<button> <i class="fa fa-send-o"></i></button>
+						<button id="submitButton"> <i class="fa fa-send-o"></i></button>
 						<label id="istyping">Partner is typing...</label>
 					</form>
 				</div>
@@ -67,13 +67,25 @@
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>
 	<script src="static/js/main.js"></script>
 	<script type="text/javascript" src="static/js/snow.js"></script>
     <script type="text/javascript" src="static/js/emojionearea.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("#m").emojioneArea({
-				saveEmojisAs: 'shortname'
+				saveEmojisAs: 'shortname',
+                events: {
+                    keyup: function(editor, event) {
+                        if (event.which == 13) {
+                            alert("Enter key pressed");
+                            event.preventDefault();
+                            setTimeout(function(){
+                                $("#submitButton").click();
+                            },1);
+                        }
+                    }
+                }
             });
         });
     </script>

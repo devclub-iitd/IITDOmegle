@@ -37,6 +37,7 @@ $(function () {
         }
     });
 
+
     $('form').submit(function () {
         var msg = $('#m').val().trim();
         if(msg!='')
