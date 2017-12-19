@@ -110,12 +110,20 @@ form button:hover{
     /*margin-left: auto;*/
 }
 
+#outerdiv img.emoji{
+    height:18px;
+    width: auto;
+}
+
+
 #outerdiv img{
     width: 100%;
     max-width: 130px;
     height: auto;
     border-radius:65px;
 }
+
+
 
 
 #messages {
@@ -164,10 +172,6 @@ form button:hover{
     border-bottom-right-radius: 10px;
     font-size: 1.2em;
 
-}
-
-.emoji{
-    height:18px;
 }
 
 #m{

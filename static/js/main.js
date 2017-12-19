@@ -2,7 +2,7 @@ $(function () {
 
     const FORM_INPUT_DISABLED_COLOR='#000000';//'#e0e2e5';
     const FORM_INPUT_MSG_COLOR='#ffffff';//'#00ff00';
-    const FORM_INPUT_SEND_COLOR='#ffffff';//'#0000ff';
+    const FORM_INPUT_SEND_COLOR='#0000ff';//'#0000ff';
     const MSG_MINE_COLOR='#af1d1d';
     const MSG_PARTNER_COLOR='#c66e01';
 
