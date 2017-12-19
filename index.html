@@ -78,7 +78,6 @@
                 events: {
                     keyup: function(editor, event) {
                         if (event.which == 13) {
-                            alert("Enter key pressed");
                             event.preventDefault();
                             setTimeout(function(){
                                 $("#submitButton").click();
