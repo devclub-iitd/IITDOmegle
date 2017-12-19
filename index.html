@@ -7,7 +7,6 @@
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
 	<link rel="stylesheet" href="static/css/emojionearea.min.css">
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@3.1.2/extras/css/emojione.min.css"/>
 	
 </head>
@@ -55,7 +54,7 @@
 			<div id="messagediv">
 				<div id = "messages"></div>
 				<div id = "newMessage">
-					<form id='msgform' action="">
+					<form id='msgform' onsubmit="return submitForm()">
 						<input type="text" id="m" autocomplete="off" placeholder="Wait for partner to join"/>
 						<button id="submitButton"> <i class="fa fa-send-o"></i></button>
 						<label id="istyping">Partner is typing...</label>
@@ -71,25 +70,6 @@
 	<script src="static/js/main.js"></script>
 	<script type="text/javascript" src="static/js/snow.js"></script>
     <script type="text/javascript" src="static/js/emojionearea.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#m").emojioneArea({
-				saveEmojisAs: 'shortname',
-                events: {
-                    keyup: function(editor, event) {
-                        if (event.which == 13) {
-                            event.preventDefault();
-                            setTimeout(function(){
-                                $("#submitButton").click();
-                            },1);
-						} else {
-							isTyping();
-						}
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

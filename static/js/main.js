@@ -1,5 +1,3 @@
-// $(function () {
-
 const FORM_INPUT_DISABLED_COLOR='#000000';//'#e0e2e5';
 const FORM_INPUT_MSG_COLOR='#ffffff';//'#00ff00';
 const FORM_INPUT_SEND_COLOR='#0000ff';//'#0000ff';
@@ -20,15 +18,14 @@ $('form button').css("pointer-events","none");
 $('form button').css("background",FORM_INPUT_DISABLED_COLOR);
 
 function timeoutFunction() {
-        socket.emit('typing', false);
+    socket.emit('typing', false);
 }
 
 function isTyping(){
     socket.emit('typing',true);
     clearTimeout(timeout);
-    timeout = setTimeout(timeoutFunction, 1000);    
+    timeout = setTimeout(timeoutFunction, 1000);        
 }
-
 
 socket.on('typing', function(data) {
     if (data) {
@@ -38,15 +35,15 @@ socket.on('typing', function(data) {
     }
 });
 
-
-$('form').submit(function () {
-    var msg = $('#m').val().trim();
-    if(msg!='')
+function submitForm(){
+    var msg = $('div.emojionearea-editor').text().trim();
+    if(msg!=''){
         socket.emit('chat message', {msg: msg, target: partner_id});
+    }
     $('#m').val('');
     $('div.emojionearea-editor').text('');
     return false;
-});
+}
 
 socket.on('init',function (data) {
     socket.username=data.username;
@@ -109,4 +106,18 @@ socket.on('partner', function (partner_data) {
                 avatar:socket.avatar}});
     }
 });
-// });
+
+$(document).ready(function() {        
+    $("#m").emojioneArea({
+        saveEmojisAs: 'shortname',
+        events: {
+            keyup: function(editor, event) {
+                if (event.which == 13) {
+                    $('form').submit();
+                } else {
+                    isTyping();
+                }
+            }
+        }
+    });
+});
