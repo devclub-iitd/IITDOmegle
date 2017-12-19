@@ -39,7 +39,7 @@ $(function () {
 
     $('form').submit(function () {
         var msg = $('#m').val();
-        socket.emit('chat message', {msg: msg, target: partner_id, source: my_id});
+        socket.emit('chat message', {msg: msg, target: partner_id});
         $('#m').val('');
         return false;
     });
