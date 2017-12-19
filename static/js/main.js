@@ -3,8 +3,8 @@ $(function () {
     const FORM_INPUT_DISABLED_COLOR='#000000';//'#e0e2e5';
     const FORM_INPUT_MSG_COLOR='#ffffff';//'#00ff00';
     const FORM_INPUT_SEND_COLOR='#ffffff';//'#0000ff';
-    const MSG_MINE_COLOR='#f72702';
-    const MSG_PARTNER_COLOR='#0763db';
+    const MSG_MINE_COLOR='#af1d1d';
+    const MSG_PARTNER_COLOR='#c66e01';
 
     var timeout;
     var socket = io();
@@ -53,16 +53,23 @@ $(function () {
     });
 
     socket.on('chat message mine',function(msg){
-        $('#messages').append('<div class="me">'+msg+'</div>');
-        $("#messages").scrollTop($("#messages")[0].scrollHeight);
+
+        var newData = '<div class="me" style="display:none">'+msg+'</div>';
+        $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
+          $("#messages").scrollTop($("#messages")[0].scrollHeight);
+        })
         $('#messages .me').css('background',MSG_MINE_COLOR);
+
     
     });
 
+
     socket.on('chat message partner', function (msg) {
         audio.play();
-        $('#messages').append('<div class="partner">'+msg+"</div>");
-        $("#messages").scrollTop($("#messages")[0].scrollHeight);
+        var newData = '<div class="partner" style="display:none">'+msg+'</div>';
+        $(newData).appendTo($('#messages')).slideDown(speed=200,callback = function(){
+          $("#messages").scrollTop($("#messages")[0].scrollHeight);
+        })
         $('#messages .partner').css('background',MSG_PARTNER_COLOR);
     
     });

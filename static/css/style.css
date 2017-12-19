@@ -182,8 +182,8 @@ form button:hover{
 }
  
 #messages::-webkit-scrollbar-thumb {
-  background-color: #94bf91;
-  outline: 1px solid #94bf91;
+  background-color: #9b4949;
+  outline: 1px solid #9b4949;
 }
 
 #canvas{
