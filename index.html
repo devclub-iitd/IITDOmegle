@@ -3,6 +3,7 @@
 <head>
     <title>IITD Omegle Chat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css" />
 	<link rel="stylesheet" media="screen" href="static/css/main.css" />
 	<link rel="stylesheet" media="screen" href="static/css/lights.css" />
 	<link rel="stylesheet" href="static/css/emojionearea.min.css">
@@ -18,17 +19,25 @@
 	</ul>
 	<div id="bodyDiv">
 		<br><br><br>
-		<h1 class="heading">IITD Omegle</h1>
-		<h3 class="heading">Chat with someone random</h3>
-		<h2 class="heading">powered by DevClub</h2>
-        <h3 class="heading"><a href="https://tinyurl.com/yako2z5o">Complaint/Bug/Suggestion</a> </h3>
+		<div class="row">
+			<div class="col-xs-6 col-sm-12">
+				<h1 class="text-center no-margin">IITD Omegle</h1>
+			</div>
+			<div class="top-right col-xs-6 col-sm-12">
+				<h3 class="text-center no-margin">Chat with someone random</h3>
+				<h2 class="text-center no-margin">powered by DevClub</h2>
+				<h3 class="text-center no-margin"><a href="https://tinyurl.com/yako2z5o">Complaint/Bug/Suggestion</a> </h3>
+			</div>
+		</div>
 		<div id = "outerdiv">
-			<div id="partnerdiv">
+			<div id="partnerdiv" class="col-sm-2">
 				<span id="partnerinfo">
-					<h3>You're talking to:</h3>
-					<br>
-					<h3 id="partnername"></h3>
-					<br>
+					<div class="align-left">
+						<h3>You're talking to:</h3>
+						<br>
+						<h3 id="partnername"></h3>
+						<br>
+					</div>
 					<img id = "partnerimg" src="">
 				</span>
 			</div>
@@ -50,6 +59,17 @@
 						<label id="istyping">Partner is typing...</label>
 					</form>
 				</div>
+			</div>
+			<div id="mydiv" class="col-sm-2">
+				<span id="myinfo">
+					<div class="align-left">
+						<h3>You are:</h3>
+						<br>
+						<h3 id="myname"></h3>
+						<br>
+					</div>
+					<img id = "myimg" src="">
+				</span>
 			</div>
 		</div>
 	</div>

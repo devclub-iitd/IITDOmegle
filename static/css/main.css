@@ -13,7 +13,7 @@ html {
 body {
     font: 13px Helvetica, Arial;
     background-image: url("/static/img/christmas.jpg");
-    background-size:100%;    
+    background-size: cover;    
     height: 100%;
     width: auto; 
     margin: 0;
@@ -89,29 +89,40 @@ form button:hover{
 
 #messagediv {
     /*overflow: hidden;*/
-    width: 70%;
+    /*width: 70%;*/
     height: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
 }
 
 #partnerdiv {
-    width: 12%;
-    float: left;
-    margin-left: 2%;
-    margin-right: auto;
+    /*width: 12%;*/
+    /*float: left;*/
+    /*margin-left: 2%;*/
+    /*margin-right: auto;*/
 }
 
 #mydiv {
-    width: 12%;
+    /*width: 12%;*/
     float: right;
-    margin-right: 0%;
-    margin-left: auto;
+    /*margin-right: 0%;*/
+    /*margin-left: auto;*/
 }
 
+#outerdiv img.emoji{
+    height:18px;
+    width: auto;
+}
+
+
 #outerdiv img{
+    width: 100%;
+    max-width: 130px;
+    height: auto;
     border-radius:65px;
 }
+
+
 
 
 #messages {
@@ -145,7 +156,7 @@ form button:hover{
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     max-width: 90%;
-    font-size: 1.5em;
+    font-size: 1.2em;
     /* background: #f72702; */
 }
 
@@ -158,7 +169,7 @@ form button:hover{
     border-bottom-left-radius: 0px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
 }
 
@@ -170,6 +181,7 @@ form button:hover{
     width: 70%;
     height: 5%;
 }
+
 
 
 
@@ -201,6 +213,7 @@ form button:hover{
     visibility:hidden;
 }
 
+
 div.emojionearea{
     width: 92%; 
     float: left;
@@ -208,4 +221,47 @@ div.emojionearea{
 
 div.emojionearea-inline{
     width: 92%; 
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+h2,h3 {
+    font-size: medium;
+}
+
+#m {
+    color: initial;
+    font-size: 1.2em;
+}
+
+#canvas {
+    height: 100vh;
+    width: 100vw;
+}
+
+@media screen and (max-width: 500px) {
+    .align-left {
+        width: 50%;
+        display: inline-block;
+    }
+    #partnerdiv #partnerimg, #mydiv #myimg {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top !important;
+        height: 50px !important;
+        border-radius: 25px;
+        max-width: 50px !important;
+        float: right;
+    }
+    #partnerdiv h3, #mydiv h3 {
+        margin: 0px;
+    }
+    #messagediv {
+        height: 60%;
+    }
+    #mydiv {
+        float: left;
+    }
 }
