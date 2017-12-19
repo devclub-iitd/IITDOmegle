@@ -13,7 +13,7 @@ html {
 body {
     font: 13px Helvetica, Arial;
     background-image: url("/static/img/christmas.jpg");
-    background-size:100%;    
+    background-size: cover;    
     height: 100%;
     width: auto; 
     margin: 0;
@@ -90,27 +90,30 @@ form button:hover{
 
 #messagediv {
     /*overflow: hidden;*/
-    width: 70%;
+    /*width: 70%;*/
     height: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
 }
 
 #partnerdiv {
-    width: 12%;
-    float: left;
-    margin-left: 2%;
-    margin-right: auto;
+    /*width: 12%;*/
+    /*float: left;*/
+    /*margin-left: 2%;*/
+    /*margin-right: auto;*/
 }
 
 #mydiv {
-    width: 12%;
+    /*width: 12%;*/
     float: right;
-    margin-right: 0%;
-    margin-left: auto;
+    /*margin-right: 0%;*/
+    /*margin-left: auto;*/
 }
 
 #outerdiv img{
+    width: 100%;
+    max-width: 130px;
+    height: auto;
     border-radius:65px;
 }
 
@@ -146,7 +149,7 @@ form button:hover{
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     max-width: 90%;
-    font-size: 1.5em;
+    font-size: 1.2em;
     /* background: #f72702; */
 }
 
@@ -159,7 +162,7 @@ form button:hover{
     border-bottom-left-radius: 0px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
 }
 
@@ -193,4 +196,22 @@ form button:hover{
 #istyping{
     color: white;
     visibility:hidden;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+h2,h3 {
+    font-size: medium;
+}
+
+#m {
+    color: initial;
+    font-size: 1.2em;
+}
+
+#canvas {
+    height: 100vh;
+    width: 100vw;
 }
