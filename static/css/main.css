@@ -114,6 +114,10 @@ form button:hover{
     width: auto;
 }
 
+#outerdiv img.emojioneemoji{
+    height: 18px;
+    width: auto;
+}
 
 #outerdiv img{
     width: 100%;
