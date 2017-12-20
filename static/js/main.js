@@ -36,7 +36,7 @@ socket.on('typing', function(data) {
 });
 
 function submitForm(){
-    var msg = $('div.emojionearea-editor').text().trim();
+    var msg = $('#m').emojioneArea()[0].emojioneArea.getText().trim();
     if(msg!=''){
         socket.emit('chat message', {msg: msg, target: partner_id});
     }
