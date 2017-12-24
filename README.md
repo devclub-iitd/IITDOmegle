@@ -31,3 +31,6 @@ To signal messages and metadata between browsers, socket.io is used.
 9. Advertise other webapps created by DevClub as the first message encountered by User.
 10. Wish the event of the day/month (Eg:- merry christmas, new year, valentine day) as the first message to user.
 11. Make Resources available offline.
+12. Make a logging system that logs and appends to file, with date time stamp.
+13. Display number of users online to the public.
+14. Make a group/indivisual mode so that people can select to chat in rooms or 1 on 1 .
