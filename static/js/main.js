@@ -4,8 +4,17 @@ const FORM_INPUT_SEND_COLOR='#0000ff';//'#0000ff';
 const MSG_MINE_COLOR='#af1d1d';
 const MSG_PARTNER_COLOR='#c66e01';
 
+const URL_PAGE = window.location.href;
+if (URL_PAGE == 'http://www.cse.iitd.ac.in/devclub/omegle/'){
+    SOCKET_URL = 'http://www.cse.iitd.ac.in/devclub/';
+}
+else{
+    SOCKET_URL = window.location.href;
+}
+console.log(SOCKET_URL);
+
 var timeout;
-var socket = io();
+var socket = io(SOCKET_URL);
 var partner_id,partner_username,partner_avatar,my_id;
 var audio = new Audio('static/sounds/notif.mp3');
 
