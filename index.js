@@ -23,7 +23,6 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
 
     num_users++;
-    console.log("Active Users = "+num_users);
     socket.partner=null;
     socket.username='anonymous-'+faker.name.firstName();
     socket.avatar=faker.internet.avatar();
@@ -37,6 +36,7 @@ io.on('connection', function(socket){
     }else{
         waiting_list.push(socket.id);
     }
+    console.log("Active Users = "+num_users+",Waiting list size="+waiting_list.length);
 
     socket.on('chat message', function(data){
         // var msg = emoji.parse(data.msg, '/emoji/images');
@@ -61,7 +61,7 @@ io.on('connection', function(socket){
             waiting_list.splice(0,1);
         }
         num_users--;
-        console.log("Active Users = "+num_users);
+        console.log("Active Users = "+num_users+",Waiting List="+waiting_list.length);
     });
 
     socket.on('typing',function (data) {
