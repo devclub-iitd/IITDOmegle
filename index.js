@@ -5,7 +5,7 @@ var express = require("express"),
     app = express(),
     http = require('http').Server(app),
     io = require('socket.io')(http),
-    port = process.env.PORT || 3000,
+    port = process.env.PORT || 3003,
     waiting_list=[],
     temp_partner,
     num_users=0;

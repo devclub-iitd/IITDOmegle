@@ -4,8 +4,15 @@ const FORM_INPUT_SEND_COLOR='#0000ff';//'#0000ff';
 const MSG_MINE_COLOR='#af1d1d';
 const MSG_PARTNER_COLOR='#c66e01';
 
+const URL_PAGE = window.location.href;
+if (URL_PAGE == 'http://www.cse.iitd.ac.in/devclub/omegle/'){
+  var socket = io('http://www.cse.iitd.ac.in',{ path: '/devclub/omegle/socket.io'});
+}
+else{
+  var socket = io();
+}
+
 var timeout;
-var socket = io();
 var partner_id,partner_username,partner_avatar,my_id;
 var audio = new Audio('static/sounds/notif.mp3');
 
@@ -36,7 +43,7 @@ socket.on('typing', function(data) {
 });
 
 function submitForm(){
-    var msg = $('div.emojionearea-editor').text().trim();
+    var msg = $('#m').emojioneArea()[0].emojioneArea.getText().trim();
     if(msg!=''){
         socket.emit('chat message', {msg: msg, target: partner_id});
     }
