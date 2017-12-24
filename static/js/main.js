@@ -6,15 +6,13 @@ const MSG_PARTNER_COLOR='#c66e01';
 
 const URL_PAGE = window.location.href;
 if (URL_PAGE == 'http://www.cse.iitd.ac.in/devclub/omegle/'){
-    SOCKET_URL = 'http://www.cse.iitd.ac.in/devclub/';
+  var socket = io('http://www.cse.iitd.ac.in',{ path: '/devclub/omegle/socket.io'});
 }
 else{
-    SOCKET_URL = window.location.href;
+  var socket = io();
 }
-console.log(SOCKET_URL);
 
 var timeout;
-var socket = io(SOCKET_URL);
 var partner_id,partner_username,partner_avatar,my_id;
 var audio = new Audio('static/sounds/notif.mp3');
 
