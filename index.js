@@ -29,10 +29,9 @@ io.on('connection', function(socket){
     socket.emit("init",{username:socket.username,avatar:socket.avatar,my_id:socket.id});
 
     if(waiting_list.length>0){
-        temp_partner=waiting_list[0];
-        socket.partner=temp_partner;
-        waiting_list.splice(0,1);
-        socket.broadcast.to(temp_partner).emit("partner", {id:socket.id,username:socket.username,avatar:socket.avatar});
+        socket.partner=waiting_list.splice(0,1);
+        socket.broadcast.to(socket.partner).emit("partner", {id:socket.id,username:socket.username,avatar:socket.avatar});    
+    
     }else{
         waiting_list.push(socket.id);
     }
@@ -58,7 +57,7 @@ io.on('connection', function(socket){
                socket.broadcast.to(socket.partner).emit("disconnecting now", 'Your Partner has disconnected . Refresh page to chat again');
         }
         else{
-            waiting_list.splice(0,1);
+            waiting_list.remove(socket.id);
         }
         num_users--;
         console.log("Active Users = "+num_users+",Waiting List="+waiting_list.length);
