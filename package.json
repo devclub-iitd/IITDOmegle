@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Random Chat App",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "socket.io": "^2.0.4"
   },
